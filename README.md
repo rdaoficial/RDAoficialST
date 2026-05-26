@@ -1,5 +1,7 @@
 # RDAoficialST
 
+<img width="512" height="512" alt="3670382" src="https://github.com/user-attachments/assets/797d8c1b-e33c-453c-a6c2-9858dcb413be" />
+
 
 Ferramenta de instalação do Steam Tools e seus demais complementos.
 
