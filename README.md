@@ -1,6 +1,6 @@
 # RDAoficialST
 
-<img width="300" height="300" alt="steam-logo-steam-icon-free-free-vector" src="https://github.com/user-attachments/assets/caa56033-9f57-4af2-9396-474c35f4dd0b" />
+<img width="256" height="256" alt="icon" src="https://github.com/user-attachments/assets/8606c086-340c-4828-aaaa-86655dff19bd" />
 
 
 
