@@ -1,0 +1,713 @@
+﻿<Window x:Class="RDAoficialST.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RDAoficial"
+        Width="820"
+        Height="860"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        WindowStyle="SingleBorderWindow"
+        Background="Black">
+
+    <Window.Resources>
+
+        <!-- ===================================== -->
+        <!-- ESTILO ANIMADO DOS BOTÕES -->
+        <!-- ===================================== -->
+
+        <Style x:Key="AnimatedButtonStyle"
+               TargetType="Button">
+
+            <Setter Property="Foreground"
+                    Value="White"/>
+
+            <Setter Property="FontWeight"
+                    Value="SemiBold"/>
+
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+
+            <Setter Property="Cursor"
+                    Value="Hand"/>
+
+            <Setter Property="RenderTransformOrigin"
+                    Value="0.5,0.5"/>
+
+            <Setter Property="RenderTransform">
+
+                <Setter.Value>
+
+                    <ScaleTransform ScaleX="1"
+                                    ScaleY="1"/>
+
+                </Setter.Value>
+
+            </Setter>
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="Button">
+
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="22">
+
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+
+                            <!-- HOVER -->
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+
+                                <Trigger.EnterActions>
+
+                                    <BeginStoryboard>
+
+                                        <Storyboard>
+
+                                            <DoubleAnimation
+                                                Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                To="1.03"
+                                                Duration="0:0:0.10"/>
+
+                                            <DoubleAnimation
+                                                Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                To="1.03"
+                                                Duration="0:0:0.10"/>
+
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="Opacity"
+                                                To="0.85"
+                                                Duration="0:0:0.10"/>
+
+                                        </Storyboard>
+
+                                    </BeginStoryboard>
+
+                                </Trigger.EnterActions>
+
+                                <Trigger.ExitActions>
+
+                                    <BeginStoryboard>
+
+                                        <Storyboard>
+
+                                            <DoubleAnimation
+                                                Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                To="1"
+                                                Duration="0:0:0.10"/>
+
+                                            <DoubleAnimation
+                                                Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                To="1"
+                                                Duration="0:0:0.10"/>
+
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="Opacity"
+                                                To="1"
+                                                Duration="0:0:0.10"/>
+
+                                        </Storyboard>
+
+                                    </BeginStoryboard>
+
+                                </Trigger.ExitActions>
+
+                            </Trigger>
+
+                            <!-- CLIQUE -->
+                            <Trigger Property="IsPressed"
+                                     Value="True">
+
+                                <Setter Property="RenderTransform">
+
+                                    <Setter.Value>
+
+                                        <ScaleTransform ScaleX="0.96"
+                                                        ScaleY="0.96"/>
+
+                                    </Setter.Value>
+
+                                </Setter>
+
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+        <!-- ===================================== -->
+        <!-- ESTILO DAS ABAS -->
+        <!-- ===================================== -->
+
+        <Style TargetType="TabItem">
+
+            <Setter Property="Foreground"
+            Value="White"/>
+
+            <Setter Property="FontWeight"
+            Value="SemiBold"/>
+
+            <Setter Property="FontSize"
+            Value="13"/>
+
+            <Setter Property="Padding"
+            Value="18,8"/>
+
+            <Setter Property="Margin"
+            Value="4,0,4,0"/>
+
+            <Setter Property="Background"
+            Value="#151515"/>
+
+            <Setter Property="BorderBrush"
+            Value="#2A2A2A"/>
+
+            <Setter Property="BorderThickness"
+            Value="1"/>
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="TabItem">
+
+                        <Grid>
+
+                            <!-- ===================================== -->
+                            <!-- ABA -->
+                            <!-- ===================================== -->
+
+                            <Border x:Name="TabBorder"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="14"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}"
+                            Opacity="0.92"
+                            RenderTransformOrigin="0.5,0.5">
+
+                                <Border.RenderTransform>
+
+                                    <ScaleTransform ScaleX="1"
+                                            ScaleY="1"/>
+
+                                </Border.RenderTransform>
+
+                                <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          ContentSource="Header"/>
+
+                            </Border>
+
+                        </Grid>
+
+                        <!-- ===================================== -->
+                        <!-- TRIGGERS -->
+                        <!-- ===================================== -->
+
+                        <ControlTemplate.Triggers>
+
+                            <!-- ===================================== -->
+                            <!-- HOVER -->
+                            <!-- ===================================== -->
+
+                            <Trigger Property="IsMouseOver"
+                             Value="True">
+
+                                <Trigger.EnterActions>
+
+                                    <BeginStoryboard>
+
+                                        <Storyboard>
+
+                                            <!-- SCALE X -->
+                                            <DoubleAnimation
+                                        Storyboard.TargetName="TabBorder"
+                                        Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                        To="1.05"
+                                        Duration="0:0:0.12"/>
+
+                                            <!-- SCALE Y -->
+                                            <DoubleAnimation
+                                        Storyboard.TargetName="TabBorder"
+                                        Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                        To="1.05"
+                                        Duration="0:0:0.12"/>
+
+                                        </Storyboard>
+
+                                    </BeginStoryboard>
+
+                                </Trigger.EnterActions>
+
+                                <Trigger.ExitActions>
+
+                                    <BeginStoryboard>
+
+                                        <Storyboard>
+
+                                            <!-- SCALE X -->
+                                            <DoubleAnimation
+                                        Storyboard.TargetName="TabBorder"
+                                        Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                        To="1"
+                                        Duration="0:0:0.12"/>
+
+                                            <!-- SCALE Y -->
+                                            <DoubleAnimation
+                                        Storyboard.TargetName="TabBorder"
+                                        Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                        To="1"
+                                        Duration="0:0:0.12"/>
+
+                                        </Storyboard>
+
+                                    </BeginStoryboard>
+
+                                </Trigger.ExitActions>
+
+                                <!-- VISUAL HOVER -->
+                                <Setter TargetName="TabBorder"
+                                Property="Background"
+                                Value="#242424"/>
+
+                                <Setter TargetName="TabBorder"
+                                Property="BorderBrush"
+                                Value="#555555"/>
+
+                            </Trigger>
+
+                            <!-- ===================================== -->
+                            <!-- ABA SELECIONADA -->
+                            <!-- ===================================== -->
+
+                            <Trigger Property="IsSelected"
+                             Value="True">
+
+                                <!-- VISUAL -->
+                                <Setter TargetName="TabBorder"
+                                Property="Background"
+                                Value="#FFD700"/>
+
+                                <Setter TargetName="TabBorder"
+                                Property="BorderBrush"
+                                Value="#FFA500"/>
+
+                                <Setter TargetName="TabBorder"
+                                Property="Opacity"
+                                Value="1"/>
+
+                                <!-- ANIMAÇÃO -->
+                                <Trigger.EnterActions>
+
+                                    <BeginStoryboard>
+
+                                        <Storyboard>
+
+                                            <!-- POP SCALE X -->
+                                            <DoubleAnimation
+                                        Storyboard.TargetName="TabBorder"
+                                        Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleX)"
+                                        From="0.92"
+                                        To="1"
+                                        Duration="0:0:0.18"/>
+
+                                            <!-- POP SCALE Y -->
+                                            <DoubleAnimation
+                                        Storyboard.TargetName="TabBorder"
+                                        Storyboard.TargetProperty="(RenderTransform).(ScaleTransform.ScaleY)"
+                                        From="0.92"
+                                        To="1"
+                                        Duration="0:0:0.18"/>
+
+                                        </Storyboard>
+
+                                    </BeginStoryboard>
+
+                                </Trigger.EnterActions>
+
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+        <!-- ===================================== -->
+        <!-- ESTILO TABCONTROL -->
+        <!-- ===================================== -->
+
+        <Style TargetType="TabControl">
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="TabControl">
+
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+
+                            </Grid.RowDefinitions>
+
+                            <!-- ABAS -->
+                            <TabPanel Grid.Row="0"
+                                      Margin="0,0,0,10"
+                                      IsItemsHost="True"
+                                      Background="Transparent"/>
+
+                            <!-- CONTEÚDO -->
+                            <Border Grid.Row="1"
+                                    Background="Transparent"
+                                    CornerRadius="18"
+                                    Padding="10"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="1"
+                                    Opacity="0.97">
+
+                                <ContentPresenter x:Name="PART_SelectedContentHost"
+                                                  Margin="5"
+                                                  ContentSource="SelectedContent"/>
+
+                            </Border>
+
+                        </Grid>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+
+        <!-- FUNDO -->
+        <Image Source="Assets/fundo.jpg"
+               Stretch="Fill"
+               Opacity="0.45"/>
+
+        <!-- OVERLAY -->
+        <Border Background="#88000000"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+
+            <StackPanel HorizontalAlignment="Center"
+                        Margin="0,25,0,25">
+
+                <!-- REDES SOCIAIS -->
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Margin="0,-10,-50,0">
+
+                    <!-- DISCORD -->
+                    <Button Width="40"
+                            Height="40"
+                            Margin="0,0,5,10"
+                            Background="Transparent"
+                            Style="{StaticResource AnimatedButtonStyle}"
+                            Click="BtnDiscord_Click">
+
+                        <StackPanel Height="40"
+                                    Width="40">
+
+                            <Image Source="Assets/discord.png"
+                                   Width="39"
+                                   Height="39"/>
+
+                        </StackPanel>
+
+                    </Button>
+
+                    <!-- YOUTUBE -->
+                    <Button Width="40"
+                            Height="40"
+                            Margin="0,0,5,0"
+                            Background="Transparent"
+                            Style="{StaticResource AnimatedButtonStyle}"
+                            Click="BtnYoutube_Click">
+
+                        <StackPanel>
+
+                            <Image Source="Assets/youtube.png"
+                                   Width="30"
+                                   Height="41"/>
+
+                        </StackPanel>
+
+                    </Button>
+
+                </StackPanel>
+
+                <!-- LOGO -->
+                <Image Source="Assets/logo.png"
+                       Width="170"
+                       Height="170"
+                       Margin="0,10,0,10"/>
+
+                <!-- TITULO -->
+                <TextBlock Text="RDAoficial"
+                           FontSize="42"
+                           FontWeight="Bold"
+                           Foreground="#FFD500"
+                           HorizontalAlignment="Center"/>
+
+                <!-- SUB -->
+                <TextBlock Text="A melhor ferramenta de instalação do Steam Tools."
+                           FontSize="14"
+                           Foreground="White"
+                           Margin="0,0,0,25"
+                           HorizontalAlignment="Center"/>
+
+                <!-- TAB CONTROL -->
+                <TabControl Width="650"
+                            Height="460"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontSize="14">
+
+                    <!-- =========================== -->
+                    <!-- ABA STEAM TOOLS -->
+                    <!-- =========================== -->
+
+                    <TabItem Header="STEAM TOOLS" Margin="48,0,-58,0">
+
+                        <StackPanel Margin="25">
+
+                            <TextBlock Text="STEAM TOOLS"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Margin="0,0,0,20"
+                                       HorizontalAlignment="Center"/>
+
+                            <Button Content="Instalar Steam Tools / Millennium / Lua Tools"
+                                    Width="410"
+                                    Height="50"
+                                    Margin="0,0,0,10"
+                                    FontSize="14"
+                                    Background="#28A745"
+                                    Style="{StaticResource AnimatedButtonStyle}"
+                                    Click="BtnInstall_Click"/>
+
+                            <Button Content="Remover Steam Tools (Mantém .lua)"
+                                    Width="410"
+                                    Height="50"
+                                    Margin="0,0,0,10"
+                                    FontSize="14"
+                                    Background="#D80303"
+                                    Style="{StaticResource AnimatedButtonStyle}"
+                                    Click="BtnRemove_Click"/>
+
+                        </StackPanel>
+
+                    </TabItem>
+
+                    <!-- =========================== -->
+                    <!-- ABA BACKUP -->
+                    <!-- =========================== -->
+
+                    <TabItem Header="BACKUP" Margin="59,0,-122,0" RenderTransformOrigin="0.5,0.5">
+                        <TabItem.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="0.975" ScaleY="0.975"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TabItem.RenderTransform>
+
+                        <StackPanel Margin="25">
+
+                            <TextBlock Text="BACKUP JOGOS DA BIBLIOTECA (.LUA)"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Margin="0,0,0,20"
+                                       HorizontalAlignment="Center"/>
+
+                            <Button Content="Backup Automático (Disco C:)"
+                                    Width="410"
+                                    Height="45"
+                                    Margin="0,0,0,10"
+                                    Background="#FFA500"
+                                    Style="{StaticResource AnimatedButtonStyle}"
+                                    Click="BtnBackup_Click"/>
+
+                            <Button Content="Restaurar Automático (Disco C:)"
+                                    Width="410"
+                                    Height="45"
+                                    Margin="0,0,0,10"
+                                    Background="#FFA500"
+                                    Style="{StaticResource AnimatedButtonStyle}"
+                                    Click="BtnRestore_Click"/>
+
+                            <Button Content="Backup Manual (Outro Diretório)"
+                                    Width="410"
+                                    Height="45"
+                                    Margin="0,0,0,10"
+                                    Background="#FFA500"
+                                    Style="{StaticResource AnimatedButtonStyle}"
+                                    Click="BtnBackupManual_Click"/>
+
+                            <Button Content="Restaurar Manual (Outro Diretório)"
+                                    Width="410"
+                                    Height="45"
+                                    Margin="0,0,0,30"
+                                    Background="#FFA500"
+                                    Style="{StaticResource AnimatedButtonStyle}"
+                                    Click="BtnRestoreManual_Click"/>
+
+                        </StackPanel>
+
+                    </TabItem>
+
+                    <!-- =========================== -->
+                    <!-- ABA APLICATIVOS -->
+                    <!-- =========================== -->
+
+                    <TabItem Header="MILLENNIUM"
+                             Background="#151515" Margin="123,0,-142,0" RenderTransformOrigin="0.5,0.5">
+                        <TabItem.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="0.979" ScaleY="0.979"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TabItem.RenderTransform>
+
+                        <Grid>
+
+                            <StackPanel VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,20,0,0">
+
+                                <Border Width="403"
+                                        Padding="20"
+                                        CornerRadius="18"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="1" Height="359">
+
+                                    <StackPanel>
+
+                                        <Image Source="Assets/appicon.png"
+                                               Width="90"
+                                               Height="90"
+                                               Margin="0,0,0,15"
+                                               HorizontalAlignment="Center"/>
+
+                                        <TextBlock Text="Millennium"
+                                                   FontSize="24"
+                                                   FontWeight="Bold"
+                                                   Foreground="White"
+                                                   HorizontalAlignment="Center"
+                                                   Margin="0,0,0,8"/>
+
+                                        <TextBlock Text="Clique abaixo para baixar o instalador."
+                                                   Foreground="#BBBBBB"
+                                                   FontSize="13"
+                                                   TextAlignment="Center"
+                                                   Margin="0,0,0,20"/>
+
+                                        <Button Content="Baixar"
+                                                Width="220"
+                                                Height="45"
+                                                HorizontalAlignment="Center"
+                                                Background="#00BFFF"
+                                                Style="{StaticResource AnimatedButtonStyle}"
+                                                Click="BtnSalvarExe_Click"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </TabItem>
+
+
+                    <!-- =========================== -->
+                    <!-- ABA LUA TOOLS -->
+                    <!-- =========================== -->
+
+                    <TabItem Header="LUA TOOLS"
+             Margin="146,0,-176,0">
+
+                        <StackPanel Margin="25">
+
+                            <!-- IMAGEM LUA TOOLS -->
+                            <Image Source="Assets/luatools.png"
+                       Width="120"
+                       Height="120"
+                       Margin="0,0,0,15"
+                       HorizontalAlignment="Center"/>
+
+                            <TextBlock Text="INSTALAÇÃO LUA TOOLS (APENAS PLUGIN)"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       Margin="0,0,0,20"
+                       HorizontalAlignment="Center"/>
+
+                            <!-- DESCRIÇÃO -->
+                            <TextBlock Text="Selecione o plugin baixado."
+                       Foreground="#BBBBBB"
+                       FontSize="13"
+                       TextAlignment="Center"
+                       Margin="0,0,0,25"/>
+
+                            <!-- BOTÃO -->
+                            <Button Content="Procurar"
+                    Width="410"
+                    Height="45"
+                    Margin="0,0,0,10"
+                    Background="#EF00FC"
+                    Style="{StaticResource AnimatedButtonStyle}"
+                    Click="BtnSelecionarLua_Click"/>
+
+
+                        </StackPanel>
+
+                    </TabItem>
+
+                </TabControl>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+
+</Window>
