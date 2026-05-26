@@ -1,6 +1,7 @@
 # RDAoficialST
 
-<img width="256" height="256" alt="icon" src="https://github.com/user-attachments/assets/8606c086-340c-4828-aaaa-86655dff19bd" />
+<img width="256" height="256" alt="icon" src="https://github.com/user-attachments/assets/6da0f9e9-2ade-4b86-b891-edebe0207b80" />
+
 
 
 
