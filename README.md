@@ -17,3 +17,4 @@ Link: https://www.youtube.com/@rdaoficiall
 - Aba de remoção de tudo
 - Aba com instalador oficial do Millennium
 - Aba para instalar/atualizar o plugin do Lua Tools.
+- Aba de correções para os jogos.
