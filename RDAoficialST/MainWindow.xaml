@@ -488,8 +488,8 @@
                            HorizontalAlignment="Center"/>
 
                 <!-- TAB CONTROL -->
-                <TabControl Width="650"
-                            Height="460"
+                <TabControl Width="638"
+                            Height="482"
                             Background="Transparent"
                             BorderThickness="0"
                             FontSize="14">
@@ -498,7 +498,7 @@
                     <!-- ABA STEAM TOOLS -->
                     <!-- =========================== -->
 
-                    <TabItem Header="STEAM TOOLS" Margin="48,0,-58,0">
+                    <TabItem Header="STEAM TOOLS" Margin="-38,0,28,0">
 
                         <StackPanel Margin="25">
 
@@ -535,7 +535,7 @@
                     <!-- ABA BACKUP -->
                     <!-- =========================== -->
 
-                    <TabItem Header="BACKUP" Margin="59,0,-122,0" RenderTransformOrigin="0.5,0.5">
+                    <TabItem Header="BACKUP" Margin="-23,0,-40,0" RenderTransformOrigin="0.5,0.5">
                         <TabItem.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="0.975" ScaleY="0.975"/>
@@ -595,7 +595,7 @@
                     <!-- =========================== -->
 
                     <TabItem Header="MILLENNIUM"
-                             Background="#151515" Margin="123,0,-142,0" RenderTransformOrigin="0.5,0.5">
+                             Background="#151515" Margin="45,0,-64,0" RenderTransformOrigin="0.5,0.5">
                         <TabItem.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="0.979" ScaleY="0.979"/>
@@ -663,9 +663,11 @@
                     <!-- =========================== -->
 
                     <TabItem Header="LUA TOOLS"
-             Margin="146,0,-176,0">
+                    Margin="70,0,-100,0">
+                        
 
                         <StackPanel Margin="25">
+
 
                             <!-- IMAGEM LUA TOOLS -->
                             <Image Source="Assets/luatools.png"
@@ -682,14 +684,24 @@
                        HorizontalAlignment="Center"/>
 
                             <!-- DESCRIÇÃO -->
-                            <TextBlock Text="Selecione o plugin baixado."
+                            <TextBlock Text="Faça o download do Plugin na sua versão mais recente abaixo."
                        Foreground="#BBBBBB"
                        FontSize="13"
                        TextAlignment="Center"
                        Margin="0,0,0,25"/>
 
-                            <!-- BOTÃO -->
-                            <Button Content="Procurar"
+
+                    <!-- BOTÃO -->
+                    <Button Content="Download"
+                    Width="410"
+                    Height="45"
+                    Margin="0,0,0,10"
+                    Background="#EF00FC"
+                    Style="{StaticResource AnimatedButtonStyle}"
+                    Click="BtnbaixarLua_Click"/>
+
+                    <!-- BOTÃO -->
+                    <Button Content="Instalar plugin baixado"
                     Width="410"
                     Height="45"
                     Margin="0,0,0,10"
@@ -701,6 +713,89 @@
                         </StackPanel>
 
                     </TabItem>
+
+
+
+                    <!-- =========================== -->
+                    <!-- ABA CORREÇÕES -->
+                    <!-- =========================== -->
+
+                    <TabItem Header="CORREÇÕES"
+                    Margin="107,0,-128,-1">
+
+                        <Grid Height="423">
+
+
+                            <Button Content="Tutorial OnlineFix"
+                        Margin="143,280,341,103"
+                        Background="#FF0000"
+                        Style="{StaticResource AnimatedButtonStyle}"
+                        Click="BtnTutorialonlinefix_Click"/>
+
+
+                            <Button Content="Tutorial RyuuFix"
+                        Margin="344,280,140,103"
+                        Background="#FF0000"
+                        Style="{StaticResource AnimatedButtonStyle}"
+                        Click="BtnTutorialryuufix_Click"/>
+
+
+                            <!-- DESCRIÇÃO -->
+                            <TextBlock Text="Tutoriais de instalação (em video) abaixo."
+                        Foreground="#BBBBBB"
+                        FontSize="13"
+                        TextAlignment="Center"
+                        Margin="93,249,93,154"
+                        Width="420"/>
+
+
+                            <StackPanel
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" Height="342" Width="574">
+
+                                <!-- IMAGEM -->
+
+                                <!-- TITULO -->
+                                <TextBlock Text="CORREÇÕES DISPONIVEIS"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       Margin="0,0,0,15"
+                       HorizontalAlignment="Center" Height="30"/>
+
+                                <!-- DESCRIÇÃO -->
+                                <TextBlock Text="Correções para jogos offline e online!"
+                       Foreground="#BBBBBB"
+                       FontSize="13"
+                       TextAlignment="Center"
+                       Margin="0,0,0,25"
+                       Width="420"/>
+
+
+                                <!-- BOTÃO -->
+                                <Button Content="Ryuu Fixes"
+                    Width="320"
+                    Height="50"
+                    Background="#8A2BE2"
+                    Style="{StaticResource AnimatedButtonStyle}"
+                    Click="BtnAbrirSite_Click"/>
+
+
+                                <Button Content="OnlineFix"
+                    Width="320"
+                    Height="50"
+                    Margin="0,10,0,0"
+                    Background="#00BFFF"
+                    Style="{StaticResource AnimatedButtonStyle}"
+                    Click="BtnOnlineFix_Click"/>
+
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </TabItem>
+
 
                 </TabControl>
 

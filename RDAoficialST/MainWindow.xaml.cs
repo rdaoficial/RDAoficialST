@@ -78,6 +78,75 @@ namespace RDAoficialST
             msg.ShowDialog();
         }
 
+
+        // ==========================================
+        // GITHUB PLUGIN LUA
+        // ==========================================
+        private void BtnbaixarLua_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://github.com/madoiscool/ltsteamplugin/releases",
+                UseShellExecute = true
+            });
+        }
+
+
+        // ==========================================
+        // TUTORIAL RYUUFIX
+        // ==========================================
+        private void BtnTutorialryuufix_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://www.youtube.com/watch?v=YvhO-i8UfOU&t=503s",
+                UseShellExecute = true
+            });
+        }
+
+
+        // ==========================================
+        // TUTORIAL ONLINEFIX
+        // ==========================================
+        private void BtnTutorialonlinefix_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://www.youtube.com/watch?v=8BYgTjpeKlc&t=461s",
+                UseShellExecute = true
+            });
+        }
+
+
+
+        // ==========================================
+        // SITE ONLINEFIX
+        // ==========================================
+
+        private void BtnOnlineFix_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://online-fix.me/",
+                UseShellExecute = true
+            });
+        }
+
+
+
+        // ==========================================
+        // SITE INCORPORADO
+        // ==========================================
+
+        private void BtnAbrirSite_Click(object sender, RoutedEventArgs e)
+        {
+            SiteWindow janela = new SiteWindow();
+
+            janela.ShowDialog();
+        }
+
+
+
         // ==========================================
         // DISCORD
         // ==========================================
@@ -86,7 +155,7 @@ namespace RDAoficialST
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://discord.gg/FPEksWaHGg",
+                FileName = "https://discord.gg/uAJPSupsbx",
                 UseShellExecute = true
             });
         }
