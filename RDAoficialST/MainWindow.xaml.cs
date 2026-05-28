@@ -135,14 +135,16 @@ namespace RDAoficialST
 
 
         // ==========================================
-        // SITE INCORPORADO
+        // SITE Ryuu Fixes
         // ==========================================
 
-        private void BtnAbrirSite_Click(object sender, RoutedEventArgs e)
+        private void BtnRyuufix_Click(object sender, RoutedEventArgs e)
         {
-            SiteWindow janela = new SiteWindow();
-
-            janela.ShowDialog();
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://generator.ryuu.lol/fixes#",
+                UseShellExecute = true
+            });
         }
 
 

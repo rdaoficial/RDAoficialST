@@ -778,7 +778,7 @@
                     Height="50"
                     Background="#8A2BE2"
                     Style="{StaticResource AnimatedButtonStyle}"
-                    Click="BtnAbrirSite_Click"/>
+                    Click="BtnRyuufix_Click"/>
 
 
                                 <Button Content="OnlineFix"
