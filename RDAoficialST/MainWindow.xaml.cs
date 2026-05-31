@@ -485,7 +485,7 @@ namespace RDAoficialST
                         string pastaSelecionada = dialog.SelectedPath;
 
                         string pastaDestino =
-                            @"C:\Program Files (x86)\Steam\plugins";
+                            @"C:\Program Files (x86)\Steam\millennium\plugins";
 
                         // Nome da pasta escolhida
                         string nomePasta =
