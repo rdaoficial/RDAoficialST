@@ -216,6 +216,8 @@ namespace RDAoficialST
                 @"C:\Program Files (x86)\Steam\millennium-legacy.version.dll",
                 @"C:\Program Files (x86)\Steam\python311.dll",
                 @"C:\Program Files (x86)\Steam\wsock32.dll",
+                @"C:\Program Files (x86)\Steam\millennium",
+                @"C:\Program Files (x86)\Steam\millennium-migration-temp",
                 @"C:\Program Files (x86)\Steam\xinput1_4.dll"
             };
 
