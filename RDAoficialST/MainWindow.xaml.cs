@@ -79,7 +79,7 @@ namespace RDAoficialST
                 System.Net.ServicePointManager.SecurityProtocol =
     System.Net.SecurityProtocolType.Tls12;
                 string downloadUrl =
-                    $"https://github.com/rdaoficial/RDAoficialST/releases/download/v{versao}/RDAoficialST.exe";
+                    $"https://github.com/rdaoficial/RDAoficialST/releases/download/{versao}/RDAoficialST.exe";
 
                 string novoExe =
                     Path.Combine(
