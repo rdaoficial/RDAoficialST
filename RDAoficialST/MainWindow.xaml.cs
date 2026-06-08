@@ -30,6 +30,11 @@ namespace RDAoficialST
         {
             try
             {
+
+                System.Net.ServicePointManager.SecurityProtocol =
+    System.Net.SecurityProtocolType.Tls12;
+
+
                 string api =
                     "https://api.github.com/repos/rdaoficial/RDAoficialST/releases/latest";
 
