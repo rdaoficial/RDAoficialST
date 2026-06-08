@@ -1,19 +1,126 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Forms = System.Windows.Forms;
-using Microsoft.Win32;
-using System.Reflection;
 
 namespace RDAoficialST
 {
     public partial class MainWindow : Window
     {
+        private const string VersaoAtual = "2.1.0";
         public MainWindow()
         {
             InitializeComponent();
+
+            Loaded += async (s, e) =>
+            {
+                await VerificarAtualizacao();
+            };
+        }
+
+        private async Task VerificarAtualizacao()
+        {
+            try
+            {
+                string api =
+                    "https://api.github.com/repos/rdaoficial/RDAoficialST/releases/latest";
+
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Add(
+                        "User-Agent",
+                        "RDAoficialST"
+                    );
+
+                    string json = await client.GetStringAsync(api);
+
+                    UpdateInfo release =
+                        JsonConvert.DeserializeObject<UpdateInfo>(json);
+
+                    string ultimaVersao =
+                        release.tag_name.Replace("v", "");
+
+                    if (ultimaVersao != VersaoAtual)
+                    {
+                        if (MessageBox.Show(
+                            $"Nova versão disponível ({ultimaVersao})\n\nDeseja atualizar agora?",
+                            "Atualização",
+                            MessageBoxButton.YesNo,
+                            MessageBoxImage.Information)
+                            == MessageBoxResult.Yes)
+                        {
+                            AtualizarPrograma(ultimaVersao);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void AtualizarPrograma(string versao)
+        {
+            try
+            {
+                string downloadUrl =
+                    $"https://github.com/rdaoficial/RDAoficialST/releases/download/v{versao}/RDAoficialST.exe";
+
+                string novoExe =
+                    Path.Combine(
+                        Path.GetTempPath(),
+                        "RDAoficialST_New.exe"
+                    );
+
+                using (WebClient wc = new WebClient())
+                {
+                    wc.DownloadFile(downloadUrl, novoExe);
+                }
+
+                string exeAtual =
+                    Process.GetCurrentProcess().MainModule.FileName;
+
+                string updaterBat =
+                    Path.Combine(
+                        Path.GetTempPath(),
+                        "update.bat"
+                    );
+
+                File.WriteAllText(
+                    updaterBat,
+                    $@"@echo off
+timeout /t 2 >nul
+copy /Y ""{novoExe}"" ""{exeAtual}""
+start """" ""{exeAtual}""
+del ""{novoExe}""
+del ""%~f0"""
+                );
+
+                Process.Start(
+                    new ProcessStartInfo
+                    {
+                        FileName = updaterBat,
+                        UseShellExecute = true,
+                        WindowStyle = ProcessWindowStyle.Hidden
+                    });
+
+                Application.Current.Shutdown();
+            }
+            catch (Exception ex)
+            {
+                ShowModernMessage(
+                    "Erro",
+                    ex.Message
+                );
+            }
         }
 
         private void ShowModernMessage(string titulo, string mensagem)
