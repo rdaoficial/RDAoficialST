@@ -121,10 +121,7 @@ del ""%~f0"""
             }
             catch (Exception ex)
             {
-                ShowModernMessage(
-                    "Erro",
-                    ex.Message
-                );
+                MessageBox.Show(ex.ToString());
             }
         }
 
