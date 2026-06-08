@@ -55,21 +55,25 @@ namespace RDAoficialST
 
                     if (ultimaVersao != VersaoAtual)
                     {
-                        UpdateWindow janela =
-                            new UpdateWindow(VersaoAtual, ultimaVersao);
+                        var resultado = MessageBox.Show(
+                            $"🚀 Nova atualização disponível!\n\n" +
+                            $"Versão atual: {VersaoAtual}\n" +
+                            $"Nova versão: {ultimaVersao}\n\n" +
+                            $"Deseja atualizar agora?",
+                            "RDAoficial - Atualização",
+                            MessageBoxButton.YesNo,
+                            MessageBoxImage.Information);
 
-                        janela.Owner = this;
-                        janela.ShowDialog();
-
-                        if (janela.Atualizar)
+                        if (resultado == MessageBoxResult.Yes)
                         {
                             AtualizarPrograma(ultimaVersao);
                         }
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
             }
         }
 
