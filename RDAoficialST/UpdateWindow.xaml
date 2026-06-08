@@ -1,0 +1,62 @@
+﻿<Window x:Class="RDAoficialST.UpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Atualização Disponível"
+        Height="320"
+        Width="500"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Background="#111111">
+
+    <Grid Margin="20">
+
+        <StackPanel>
+
+            <Image Source="Assets/logo.png"
+                   Width="90"
+                   Height="90"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,15"/>
+
+            <TextBlock Text="Nova Atualização Disponível"
+                       Foreground="White"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+            <TextBlock x:Name="TxtVersoes"
+                       Foreground="#CCCCCC"
+                       FontSize="15"
+                       TextAlignment="Center"
+                       Margin="0,0,0,25"/>
+
+            <TextBlock Text="Deseja atualizar agora?"
+                       Foreground="White"
+                       FontSize="15"
+                       TextAlignment="Center"
+                       Margin="0,0,0,25"/>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                <Button x:Name="BtnAtualizar"
+                        Content="Atualizar Agora"
+                        Width="170"
+                        Height="45"
+                        Margin="0,0,10,0"
+                        Background="#00C853"
+                        Foreground="White"/>
+
+                <Button Content="Depois"
+                        Width="120"
+                        Height="45"
+                        Click="BtnDepois_Click"/>
+
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+
+</Window>

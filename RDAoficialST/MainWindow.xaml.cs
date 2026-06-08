@@ -55,12 +55,13 @@ namespace RDAoficialST
 
                     if (ultimaVersao != VersaoAtual)
                     {
-                        if (MessageBox.Show(
-                            $"Nova versão disponível ({ultimaVersao})\n\nDeseja atualizar agora?",
-                            "Atualização",
-                            MessageBoxButton.YesNo,
-                            MessageBoxImage.Information)
-                            == MessageBoxResult.Yes)
+                        UpdateWindow janela =
+                            new UpdateWindow(VersaoAtual, ultimaVersao);
+
+                        janela.Owner = this;
+                        janela.ShowDialog();
+
+                        if (janela.Atualizar)
                         {
                             AtualizarPrograma(ultimaVersao);
                         }
