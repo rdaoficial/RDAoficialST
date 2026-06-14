@@ -7,7 +7,7 @@
 
 Ferramenta de instalação do Steam Tools e seus demais complementos.
 
-## Me siga no Youtube!
+## Me acompanhe no Youtube!
 Link: https://www.youtube.com/@rdaoficiall
 
 # ✨ Recursos
