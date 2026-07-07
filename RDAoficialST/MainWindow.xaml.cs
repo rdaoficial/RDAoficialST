@@ -264,6 +264,7 @@ namespace RDAoficialST
         }
 
 
+     
 
         // ==========================================
         // GITHUB PLUGIN LUA
@@ -298,7 +299,7 @@ namespace RDAoficialST
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://www.youtube.com/watch?v=8BYgTjpeKlc&t=461s",
+                FileName = "https://youtu.be/qe5UCq-_zhE?si=rJuNYC6PdLteBva6",
                 UseShellExecute = true
             });
         }
@@ -389,37 +390,6 @@ namespace RDAoficialST
         }
 
 
-
-        // ==========================================
-        // INSTALAR (TUDO) (LEGACY)
-        // ==========================================
-
-        private void BtnInstalllegacy_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                string cmd =
-                    "Invoke-RestMethod \\\"https://luatoolsplugin.vercel.app/install-st-ml-lt-cl.ps1\\\" | Invoke-Expression";
-
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "powershell.exe",
-                    Arguments = $" -Command {cmd}",
-                    UseShellExecute = true,
-                    Verb = "runas"
-                });
-            }
-            catch (Exception ex)
-            {
-                System.Windows.MessageBox.Show(
-                    ex.Message,
-                    "Erro",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error
-                );
-            }
-        }
-
         // ==========================================
         // REMOVER
         // ==========================================
@@ -458,7 +428,7 @@ namespace RDAoficialST
 
             ShowToast(
                    "RDAoficial",
-                   "Exclusão concluida!"
+                   "Remoção concluida!"
                   );
         }
 
@@ -484,7 +454,7 @@ namespace RDAoficialST
                     if (Directory.Exists(destino))
                         Directory.Delete(destino, true);
 
-                    Directory.Move(origem, destino);
+                    CopyDirectory(origem, destino);
 
                     ShowToast(
                     "RDAoficial",
@@ -539,99 +509,133 @@ namespace RDAoficialST
         }
 
         // ==========================================
-        // BACKUP MANUAL
+        // BACKUP CONQUISTAS AUTOMÁTICAMENTE
         // ==========================================
 
-        private void BtnBackupManual_Click(object sender, RoutedEventArgs e)
+        private void BtnBackupconq_Click(object sender, RoutedEventArgs e)
         {
-            using (Forms.FolderBrowserDialog origemDialog = new Forms.FolderBrowserDialog())
+            try
             {
-                origemDialog.Description = "Selecione a pasta (stplug-in) no diretorio da sua steam";
+                string origem =
+                    @"C:\Program Files (x86)\Steam\appcache\stats";
 
-                if (origemDialog.ShowDialog() == Forms.DialogResult.OK)
+                string destino =
+                    Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                        "stats"
+                    );
+
+                if (Directory.Exists(origem))
                 {
-                    using (Forms.FolderBrowserDialog destinoDialog = new Forms.FolderBrowserDialog())
-                    {
-                        destinoDialog.Description = "Selecione onde salvar o backup";
+                    if (Directory.Exists(destino))
+                        Directory.Delete(destino, true);
 
-                        if (destinoDialog.ShowDialog() == Forms.DialogResult.OK)
-                        {
-                            try
-                            {
-                                string origem = origemDialog.SelectedPath;
+                    CopyDirectory(origem, destino);
 
-                                string destino =
-                                    Path.Combine(
-                                        destinoDialog.SelectedPath,
-                                        "stplug-in"
-                                    );
-
-                                if (Directory.Exists(destino))
-                                    Directory.Delete(destino, true);
-
-                                Directory.Move(origem, destino);
-
-                                ShowToast(
-                                    "RDAoficial",
-                                    "Backup Feito!"
-                                );
-                            }
-                            catch (Exception ex)
-                            {
-                                System.Windows.MessageBox.Show(ex.Message);
-                            }
-                        }
-                    }
+                    ShowToast(
+                    "RDAoficial",
+                    "Backup Realizado com sucesso!"
+                   );
                 }
+                else
+                {
+                    ShowToast(
+                    "RDAoficial",
+                    "Erro: Pasta não encontrada!"
+                   );
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
             }
         }
 
         // ==========================================
-        // RESTAURAR MANUAL
+        // RESTAURAR CONQUISTAS AUTOMÁTICAMENTE
         // ==========================================
 
-        private void BtnRestoreManual_Click(object sender, RoutedEventArgs e)
+        private void BtnRestoreconq_Click(object sender, RoutedEventArgs e)
         {
-            using (Forms.FolderBrowserDialog origemDialog = new Forms.FolderBrowserDialog())
+            try
             {
-                origemDialog.Description = "Selecione a pasta de backup stplug-in";
+                string origem =
+                    Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                        "stats"
+                    );
 
-                if (origemDialog.ShowDialog() == Forms.DialogResult.OK)
-                {
-                    using (Forms.FolderBrowserDialog destinoDialog = new Forms.FolderBrowserDialog())
-                    {
-                        destinoDialog.Description = "Selecione a pasta config da Steam";
+                string destino =
+                    @"C:\Program Files (x86)\Steam\appcache\stats";
 
-                        if (destinoDialog.ShowDialog() == Forms.DialogResult.OK)
-                        {
-                            try
-                            {
-                                string origem = origemDialog.SelectedPath;
+                if (Directory.Exists(destino))
+                    Directory.Delete(destino, true);
 
-                                string destino =
-                                    Path.Combine(
-                                        destinoDialog.SelectedPath,
-                                        "stplug-in"
-                                    );
+                Directory.Move(origem, destino);
 
-                                if (Directory.Exists(destino))
-                                    Directory.Delete(destino, true);
-
-                                Directory.Move(origem, destino);
-                                ShowToast(
-                                    "RDAoficial",
-                                    "Backup Restaurado!"
-                                );
-                            }
-                            catch (Exception ex)
-                            {
-                                System.Windows.MessageBox.Show(ex.Message);
-                            }
-                        }
-                    }
-                }
+                ShowToast(
+                    "RDAoficial",
+                    "Backup Restaurado com sucesso!"
+                   );
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
             }
         }
+
+
+        // ==========================================
+        // BAIXAR INSTALADOR APP LUA
+        // ==========================================
+
+        private void BtnSalvarLuaInstaller_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog
+                {
+                    Filter = "Executável (*.exe)|*.exe",
+                    FileName = "LuaTools-win-Setup.exe"
+                };
+
+                if (saveDialog.ShowDialog() == true)
+                {
+                    string resourceName =
+                        "RDAoficialST.Assets.LuaTools-win-Setup.exe";
+
+                    using (Stream stream = Assembly
+                        .GetExecutingAssembly()
+                        .GetManifestResourceStream(resourceName))
+                    {
+                        if (stream == null)
+                        {
+                            ShowToast(
+                                "Erro",
+                                "Instalador não encontrado."
+                            );
+                        }
+
+                        using (FileStream file =
+                            new FileStream(saveDialog.FileName, FileMode.Create))
+                        {
+                            stream.CopyTo(file);
+                        }
+                    }
+
+                    ShowToast(
+                        "RDAoficial",
+                        "Instalador baixado com sucesso!"
+                        );
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            }
+        }
+
+
 
         // ==========================================
         // SAIR
@@ -769,7 +773,7 @@ namespace RDAoficialST
             TextBlock texto = new TextBlock
             {
                 Text =
-        @"Versão: 2.1.2
+        @"Versão: 2.1.3
 
 Ferramenta desenvolvida para auxiliar na instalação
 e gerenciamento do Steam Tools, Millennium e Lua Tools.

@@ -580,7 +580,7 @@
 
                     <StackPanel Margin="15">
 
-                        <TextBlock Text="Instalação (Experimental) (Mais recente)"
+                        <TextBlock Text="Instalação versão (Mais recente)"
                                        FontSize="18"
                                        FontWeight="Bold"
                                        Foreground="White"
@@ -595,25 +595,6 @@
                                     Background="#00BFFF"
                                     Style="{StaticResource AnimatedButtonStyle}"
                                     Click="BtnInstall_Click"/>
-
-
-                        <TextBlock Text="Instalação (Legacy) (Mais estavel)"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="White"
-                               Margin="0,0,0,12"
-                               HorizontalAlignment="Center"/>
-
-
-
-                        <Button Content="Instalar (Tudo) Steam Tools / Millennium / Lua Tools"
-                                Width="320"
-                                Height="38"
-                                Margin="0,0,0,10"
-                                FontSize="12"
-                                Background="#00BFFF"
-                                Style="{StaticResource AnimatedButtonStyle}"
-                                Click="BtnInstalllegacy_Click"/>
 
 
 
@@ -654,51 +635,60 @@
 
                     <StackPanel Margin="15">
 
-                        <TextBlock Text="Backup da Biblioteca (.LUA)"
+                        <TextBlock Text="Backup da Biblioteca (.luas)"
                                        FontSize="18"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        Margin="0,0,0,12"
                                        HorizontalAlignment="Center"/>
 
-                        <Button Content="Backup Automático (Disco C:)"
+                        <Button Content="Backup Automático"
                                     Width="320"
                                     Height="38"
                                     Margin="0,0,0,10"
-                                    Background="#FFA500"
+                                    Background="#FFF100FF"
                                     Style="{StaticResource AnimatedButtonStyle}"
-                                    Click="BtnBackup_Click"/>
+                                    Click="BtnBackup_Click" Foreground="White"/>
 
-                        <Button Content="Restaurar Automático (Disco C:)"
+                        <Button Content="Restaurar Automático"
                                     Width="320"
                                     Height="38"
                                     Margin="0,0,0,10"
-                                    Background="#FFA500"
+                                    Background="#FFF100FF"
                                     Style="{StaticResource AnimatedButtonStyle}"
                                     Click="BtnRestore_Click"/>
 
-                        <Button Content="Backup Manual (Outro Diretório)"
+
+                        <TextBlock Text="Backup das Conquistas"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Margin="0,0,0,12"
+                           HorizontalAlignment="Center"/>
+
+
+                        <Button Content="Backup Automatico"
                                     Width="320"
                                     Height="38"
                                     Margin="0,0,0,10"
-                                    Background="#FFA500"
+                                    Background="#32CD32"
                                     Style="{StaticResource AnimatedButtonStyle}"
-                                    Click="BtnBackupManual_Click"/>
+                                    Click="BtnBackupconq_Click"/>
 
-                        <Button Content="Restaurar Manual (Outro Diretório)"
+                        <Button Content="Restaurar Automatico"
                                     Width="320"
                                     Height="38"
                                     Margin="0,0,0,30"
-                                    Background="#FFA500"
+                                    Background="#32CD32"
                                     Style="{StaticResource AnimatedButtonStyle}"
-                                    Click="BtnRestoreManual_Click"/>
+                                    Click="BtnRestoreconq_Click"/>
 
                     </StackPanel>
 
                 </TabItem>
 
                 <!-- =========================== -->
-                <!-- ABA APLICATIVOS -->
+                <!-- ABA MILLENNIUM -->
                 <!-- =========================== -->
 
                 <TabItem Header="Millennium"
@@ -770,54 +760,112 @@
                 <!-- =========================== -->
 
                 <TabItem Header="Lua Tools"
-                    Margin="95,0,-120,0">
+         Margin="95,0,-120,0">
 
+                    <Grid Margin="15">
 
-                    <StackPanel Margin="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
+                        <!-- ================================= -->
+                        <!-- PLUGIN -->
+                        <!-- ================================= -->
 
-                        <!-- IMAGEM LUA TOOLS -->
-                        <Image Source="Assets/luatools.png"
-                       Width="80"
-                       Height="80"
-                       Margin="0,0,0,15"
-                       HorizontalAlignment="Center"/>
+                        <Border Grid.Column="0"
+                Margin="5"
+                Padding="15"
+                CornerRadius="15"
+                Background="Transparent"
+                BorderThickness="1">
 
-                        <TextBlock Text="Instalação Lua Tools (Apenas Plugin)"
-                       FontSize="18"
-                       FontWeight="Bold"
-                       Foreground="White"
-                       Margin="0,0,0,12"
-                       HorizontalAlignment="Center"/>
+                            <StackPanel>
 
-                        <!-- DESCRIÇÃO -->
-                        <TextBlock Text="Faça o download do Plugin na sua versão mais recente abaixo."
-                       Foreground="#BBBBBB"
-                       FontSize="13"
-                       TextAlignment="Center"
-                       Margin="0,0,0,25"/>
+                                <Image Source="Assets/luatools.png"
+                       Width="70"
+                       Height="70"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,12"/>
+                                
+                          
 
+                                <TextBlock Text="Lua Tools (Plugin)"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,10"/>
 
-                        <!-- BOTÃO -->
-                        <Button Content="Download"
-                    Width="320"
-                    Height="38"
-                    Margin="0,0,0,10"
-                    Background="#EF00FC"
-                    Style="{StaticResource AnimatedButtonStyle}"
-                    Click="BtnbaixarLua_Click"/>
+                                <TextBlock Text="Baixe sempre a versão mais recente do plugin."
+                           TextAlignment="Center"
+                           Foreground="#BBBBBB"
+                           FontSize="11"
+                           Margin="0,0,0,18"/>
 
-                        <!-- BOTÃO -->
-                        <Button Content="Instalar plugin baixado"
-                    Width="320"
-                    Height="38"
-                    Margin="0,0,0,10"
-                    Background="#EF00FC"
-                    Style="{StaticResource AnimatedButtonStyle}"
-                    Click="BtnSelecionarLua_Click"/>
+                                <Button Content="Download"
+                        Width="190"
+                        Height="38"
+                        Margin="0,0,0,10"
+                        Background="#EF00FC"
+                        Style="{StaticResource AnimatedButtonStyle}"
+                        Click="BtnbaixarLua_Click"/>
 
+                                <Button Content="Instalar plugin"
+                        Width="190"
+                        Height="38"
+                        Background="#EF00FC"
+                        Style="{StaticResource AnimatedButtonStyle}"
+                        Click="BtnSelecionarLua_Click"/>
 
-                    </StackPanel>
+                            </StackPanel>
+
+                        </Border>
+
+                        <!-- ================================= -->
+                        <!-- INSTALADOR -->
+                        <!-- ================================= -->
+
+                        <Border Grid.Column="1"
+                Margin="5"
+                Padding="15"
+                CornerRadius="15"
+                Background="Transparent"
+                BorderThickness="1">
+
+                            <StackPanel>
+
+                                <Image Source="Assets/applua.png"
+                       Width="275"
+                       Height="104"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,12"/>
+
+                                <TextBlock Text="Lua Tools (App)"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,10"/>
+
+                                <TextBlock Text="Baixe o instalador do App Lua Tools."
+                           TextAlignment="Center"
+                           Foreground="#BBBBBB"
+                           FontSize="11"
+                           Margin="0,0,0,18"/>
+
+                                <Button Content="Download"
+                        Width="190"
+                        Height="38"
+                        Background="#FFEF00FC"
+                        Style="{StaticResource AnimatedButtonStyle}"
+                        Click="BtnSalvarLuaInstaller_Click"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                    </Grid>
 
                 </TabItem>
 

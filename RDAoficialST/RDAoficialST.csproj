@@ -119,13 +119,16 @@
     <Resource Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\MillenniumInstaller-Windows.exe" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\appicon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\luatools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\LuaTools-win-Setup.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\applua.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
