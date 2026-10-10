@@ -841,7 +841,7 @@
 
         <TextBlock Text="Sobre"
            FontSize="13"
-           Foreground="Red"
+           Foreground="Yellow"
            Cursor="Hand"
            HorizontalAlignment="Right"
            VerticalAlignment="Top"
