@@ -1,0 +1,23 @@
+-- Generated with Luie @ https://lua.tools/
+-- 12220 - Grand Theft Auto: Episodes from Liberty City
+-- Generated 2026-10-10 22:01:17 UTC
+-- # Depots (Total/DLC/Shared): 7/0/0
+
+-- Main AppID
+addappid(12220, 1, "4f3323ebbd0b8a771afc0e44a381ef46ab01168da53f8b667c622e24198d8b99")
+
+-- Main Depots
+addappid(12221, 1, "81ddb2112e643bbd3b6ba2afb6cb5befc29e6af279417b1fe869a913e6fb2131")
+setManifestid(12221, "3724368639462495704", 16798706028)
+addappid(12222, 1, "b5b5eda30f092696af90c38dececf04ce645b6c719190650068bddce5c49de1e")
+setManifestid(12222, "4873137157423983930", 146790981)
+addappid(12223, 1, "982592ab99db3254cf53eba6b7cc8fb969d6bb444701a5b69d9c4013980153e6") -- English
+setManifestid(12223, "5864218123665864372", 3356985)
+addappid(12224, 1, "eafa2330ab55d5ac009bc764b5a743ca0f8b066908589f75687b2f72ba2d5466") -- French
+setManifestid(12224, "5159865615262522368", 3294495)
+addappid(12225, 1, "17e188ec9aeb7eeee849a65b009787a8cc415781466a517ce5f6c27cbc9e4136") -- Italian
+setManifestid(12225, "2410949247245578384", 3346109)
+addappid(12226, 1, "b9c2812297b896cbe17d5d14a9b74e93b2b99b1f86dd3b4e21342f7a61b32fca") -- German
+setManifestid(12226, "1134841128184410844", 3166888)
+addappid(12227, 1, "dc52bbe1b3329b150a53b9cad3c71ee6ab502b81e18b87b293f98a811a600515") -- Spanish
+setManifestid(12227, "1563319131398911718", 3369240)

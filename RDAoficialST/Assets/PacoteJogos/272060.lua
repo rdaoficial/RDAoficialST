@@ -1,0 +1,17 @@
+-- Generated with Luie @ https://lua.tools/
+-- 272060 - Serena
+-- Generated 2026-10-10 22:01:34 UTC
+-- # Depots (Total/DLC/Shared): 4/0/0
+
+-- Main AppID
+addappid(272060, 1, "0f087b58d907dcaaa69aca1a1da1144e98c67d950fdc037a57048cc71217e6e6")
+
+-- Main Depots
+addappid(272061, 1, "b84279690c1b97c3111f7f551a5d4fb475661184802bf6115610bf155c05024d")
+setManifestid(272061, "6750891625444440658", 383686726)
+addappid(272062, 1, "4360d2d841d77ef7805b0f45b1c63ac682f5219d7ef5a901f919a4f76a74254a") -- (windows)
+setManifestid(272062, "5155837272584660184", 6176929)
+addappid(272063, 1, "dac7eb3ea74416c353fce72a594c89b79241d23fbcaf10a7d43422e843e19fa2") -- (macos)
+setManifestid(272063, "373625170796296071", 9695315)
+addappid(272064, 1, "435b1366a3d1082d63c521f025c0a7bb4da98c41d88d5b69a126f39f62ac3139") -- (linux)
+setManifestid(272064, "6920851828711921025", 1407040)

@@ -1,19 +1,21 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using Forms = System.Windows.Forms;
 using System.Windows.Media.Effects;
+using Forms = System.Windows.Forms;
 using Path = System.IO.Path;
-using System.Windows.Markup;
 
 namespace RDAoficialST
 {
@@ -29,6 +31,142 @@ namespace RDAoficialST
             AnimarTitulo();
             AnimarLogo();
         }
+
+
+
+
+
+        private void BtnInstalarPacote_Click(object sender, RoutedEventArgs e)
+        {
+            const string destino =
+                @"C:\Program Files (x86)\Steam\config\stplug-in";
+
+            try
+            {
+                Assembly assembly = Assembly.GetExecutingAssembly();
+
+                var recursos = assembly.GetManifestResourceNames()
+                    .Where(n => n.EndsWith(
+                        ".lua", StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+                if (recursos.Count == 0)
+                {
+                    System.Windows.MessageBox.Show(
+                        "Nenhum arquivo Lua foi encontrado nos recursos incorporados.",
+                        "Pacote de jogos",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Warning);
+                    return;
+                }
+
+                Directory.CreateDirectory(destino);
+
+                string raiz = Path.GetFullPath(destino)
+                    .TrimEnd(Path.DirectorySeparatorChar) +
+                    Path.DirectorySeparatorChar;
+
+                var arquivos = new List<(string Recurso, string Caminho)>();
+
+
+                const string prefixo = "PacoteJogos.";
+
+                foreach (string recurso in recursos)
+                {
+                    if (!recurso.StartsWith(
+                        prefixo, StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+
+                    // Remove apenas o prefixo interno do recurso.
+                    string relativo = recurso.Substring(prefixo.Length);
+
+                    string caminho = Path.GetFullPath(
+                        Path.Combine(destino, relativo));
+
+                    if (!caminho.StartsWith(
+                        raiz, StringComparison.OrdinalIgnoreCase))
+                    {
+                        throw new IOException(
+                            "Caminho inválido no recurso: " + recurso);
+                    }
+
+                    arquivos.Add((recurso, caminho));
+                }
+
+
+                var conflitos = arquivos
+                    .Where(a => File.Exists(a.Caminho))
+                    .ToList();
+
+                if (conflitos.Count > 0)
+                {
+                    var resposta = System.Windows.MessageBox.Show(
+                        "Já existem " + conflitos.Count +
+                        " Jogos comprados. Deseja comprar-los novamente?",
+                        "Confirmar compra",
+                        MessageBoxButton.YesNo,
+                        MessageBoxImage.Warning);
+
+                    if (resposta != MessageBoxResult.Yes)
+                    {
+                        TxtStatusPacote.Text = "Compra cancelada.❌";
+                        return;
+                    }
+                }
+
+                int instalados = 0;
+
+                foreach (var arquivo in arquivos)
+                {
+                    string pasta = Path.GetDirectoryName(arquivo.Caminho);
+
+                    if (!string.IsNullOrEmpty(pasta))
+                        Directory.CreateDirectory(pasta);
+
+                    using (Stream entrada =
+                        assembly.GetManifestResourceStream(arquivo.Recurso))
+                    {
+                        if (entrada == null)
+                            throw new IOException(
+                                "Não foi possível ler: " + arquivo.Recurso);
+
+                        using (FileStream saida = new FileStream(
+                            arquivo.Caminho,
+                            FileMode.Create,
+                            FileAccess.Write,
+                            FileShare.None))
+                        {
+                            entrada.CopyTo(saida);
+                        }
+                    }
+
+                    instalados++;
+                }
+
+                TxtStatusPacote.Text =
+                    $"Compra concluída: {instalados} jogos(s).✅";
+
+                ShowToast(
+                    "Pacote de jogos",
+                    $"{instalados} jogos comprados.✅");
+            }
+            catch (Exception ex)
+            {
+                TxtStatusPacote.Text = "Falha na compra.❌";
+
+                System.Windows.MessageBox.Show(
+                    ex.Message,
+                    "Erro ao comprar pacote ❌",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+
+
+
 
 
         private void ShowToast(string titulo, string mensagem)
@@ -264,19 +402,7 @@ namespace RDAoficialST
         }
 
 
-     
-
-        // ==========================================
-        // GITHUB PLUGIN LUA
-        // ==========================================
-        private void BtnbaixarLua_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://github.com/madoiscool/ltsteamplugin/releases",
-                UseShellExecute = true
-            });
-        }
+    
 
 
         // ==========================================
@@ -335,20 +461,6 @@ namespace RDAoficialST
         }
 
 
-
-        // ==========================================
-        // DISCORD
-        // ==========================================
-
-        private void BtnDiscord_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "https://discord.gg/uAJPSupsbx",
-                UseShellExecute = true
-            });
-        }
-
         private void BtnYoutube_Click(object sender, RoutedEventArgs e)
         {
             Process.Start(new ProcessStartInfo
@@ -358,79 +470,6 @@ namespace RDAoficialST
             });
         }
 
-
-        // ==========================================
-        // INSTALAR (TUDO) (MAIS RECENTE)
-        // ==========================================
-
-        private void BtnInstall_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                string cmd =
-                    "Invoke-RestMethod \\\"https://luatools.vercel.app/install-plugin.ps1\\\" | Invoke-Expression";
-
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "powershell.exe",
-                    Arguments = $" -Command {cmd}",
-                    UseShellExecute = true,
-                    Verb = "runas"
-                });
-            }
-            catch (Exception ex)
-            {
-                System.Windows.MessageBox.Show(
-                    ex.Message,
-                    "Erro",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error
-                );
-            }
-        }
-
-
-        // ==========================================
-        // REMOVER
-        // ==========================================
-
-        private void BtnRemove_Click(object sender, RoutedEventArgs e)
-        {
-            string[] caminhos =
-            {
-                @"C:\Program Files (x86)\Steam\ext",
-                @"C:\Program Files (x86)\Steam\plugins",
-                @"C:\Program Files (x86)\Steam\dwmapi.dll",
-                @"C:\Program Files (x86)\Steam\millennium.dll",
-                @"C:\Program Files (x86)\Steam\millennium.hhx64.dll",
-                @"C:\Program Files (x86)\Steam\millennium-legacy.version.dll",
-                @"C:\Program Files (x86)\Steam\python311.dll",
-                @"C:\Program Files (x86)\Steam\wsock32.dll",
-                @"C:\Program Files (x86)\Steam\millennium",
-                @"C:\Program Files (x86)\Steam\millennium-migration-temp",
-                @"C:\Program Files (x86)\Steam\xinput1_4.dll"
-            };
-
-            foreach (string caminho in caminhos)
-            {
-                try
-                {
-                    if (Directory.Exists(caminho))
-                        Directory.Delete(caminho, true);
-
-                    if (File.Exists(caminho))
-                        File.Delete(caminho);
-                }
-                catch
-                {
-                }
-            }
-
-            ShowToast(
-                   "RDAoficial",
-                   "Remoção concluida!"
-                  );
-        }
 
         // ==========================================
         // BACKUP AUTOMÁTICO
@@ -591,48 +630,11 @@ namespace RDAoficialST
 
         private void BtnSalvarLuaInstaller_Click(object sender, RoutedEventArgs e)
         {
-            try
+            Process.Start(new ProcessStartInfo
             {
-                SaveFileDialog saveDialog = new SaveFileDialog
-                {
-                    Filter = "Executável (*.exe)|*.exe",
-                    FileName = "LuaTools-win-Setup.exe"
-                };
-
-                if (saveDialog.ShowDialog() == true)
-                {
-                    string resourceName =
-                        "RDAoficialST.Assets.LuaTools-win-Setup.exe";
-
-                    using (Stream stream = Assembly
-                        .GetExecutingAssembly()
-                        .GetManifestResourceStream(resourceName))
-                    {
-                        if (stream == null)
-                        {
-                            ShowToast(
-                                "Erro",
-                                "Instalador não encontrado."
-                            );
-                        }
-
-                        using (FileStream file =
-                            new FileStream(saveDialog.FileName, FileMode.Create))
-                        {
-                            stream.CopyTo(file);
-                        }
-                    }
-
-                    ShowToast(
-                        "RDAoficial",
-                        "Instalador baixado com sucesso!"
-                        );
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Windows.MessageBox.Show(ex.Message);
-            }
+                FileName = "https://lua.tools/app",
+                UseShellExecute = true
+            });
         }
 
 
@@ -773,10 +775,9 @@ namespace RDAoficialST
             TextBlock texto = new TextBlock
             {
                 Text =
-        @"Versão: 2.1.3
+        @"Versão: 2.1.4
 
-Ferramenta desenvolvida para auxiliar na instalação
-e gerenciamento do Steam Tools, Millennium e Lua Tools.
+Ferramenta desenvolvida para auxiliar no gerenciamento do Steam Tools e Lua Tools.
 
 Desenvolvido por: RDAoficial (Youtuber)
 
@@ -794,7 +795,7 @@ Desenvolvido por: RDAoficial (Youtuber)
                 FontWeight = FontWeights.SemiBold,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Margin = new Thickness(0, 10, 0, 0),
-                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD700")),
+                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0000")),
                 Foreground = Brushes.Black,
                 BorderThickness = new Thickness(0),
                 Cursor = System.Windows.Input.Cursors.Hand

@@ -1,0 +1,45 @@
+-- Generated with Luie @ https://lua.tools/
+-- 1817190 - Marvel's Spider-Man: Miles Morales
+-- Generated 2026-10-10 21:30:06 UTC
+-- # Depots (Total/DLC/Shared): 17/1/1
+
+-- Main AppID
+addappid(1817190, 1, "fb39d532c66f301f54ab69d3798b97402bf74c87cd99451b62b41a6753ad28af")
+
+-- Main Depots
+addappid(1817191, 1, "91cea3ca7e88bc7c2996ff596e0265f6f08725039231fbb3c690de1392123557") -- (windows, 64-bit)
+setManifestid(1817191, "7937382621584242004", 49673492825)
+addappid(1817192, 1, "0dbff607360baee47d8b9758bb4eaf1c06cdc2f05a3928cd4b63f3095a01bdc5") -- (windows, 64-bit)
+setManifestid(1817192, "2758716105851180613", 310845752)
+addappid(1817194, 1, "36182530fb130e8fe36c418f8cbe1f3c4d80612ed2238f2b6e2de6ac5379c8fc") -- (windows, 64-bit)
+setManifestid(1817194, "5377748227570864319", 920580096)
+addappid(1817195, 1, "6960ae982ba686f92440369d386066936bc5088932ec01f78e4e18be555c7eaf") -- French (windows, 64-bit)
+setManifestid(1817195, "5810006367820443622", 918249472)
+addappid(1817196, 1, "395523caf7a1bb235e3b9010c83eeb0b6b39de83d2a5139ebde080c9e5d8b86f") -- German (windows, 64-bit)
+setManifestid(1817196, "8292041091951368180", 977108992)
+addappid(1817197, 1, "0e3f3259d54c63dda0bffaf8db48e1c6ac2cc6a7a3269040f55753d49c30f239") -- Italian (windows, 64-bit)
+setManifestid(1817197, "8895962896721290161", 892088320)
+addappid(1817198, 1, "d4dda3222d171b9eed3ae4b40f5f93fbeb0c70932717bed1f930ee7008c7a3e4") -- Japanese (windows, 64-bit)
+setManifestid(1817198, "3531441267696901814", 940281856)
+addappid(1817199, 1, "32929006ffff16e880e14785d0c37fb4d1873915be592b8f0ff562cc4df13fca") -- Polish (windows, 64-bit)
+setManifestid(1817199, "8758386880563899064", 949043200)
+addappid(1829900, 1, "7e97a4469c86ce458028cbd9e97b8622f51e1f1e91e213eabd88f24cfa87ee10") -- Portuguese (windows, 64-bit)
+setManifestid(1829900, "436680072166473638", 891211776)
+addappid(1829901, 1, "2c0d6bf29a266d843cb5c5621f015c589e21b095e8fe40057a31a978487ed0c5") -- Brazilian (windows, 64-bit)
+setManifestid(1829901, "5933996443615820417", 860553216)
+addappid(1829902, 1, "984055093dcd964a1bcea2c9044c5edd718ec5f2c62a9c1bcd3bb17219268685") -- Russian (windows, 64-bit)
+setManifestid(1829902, "4688196650181006526", 937553920)
+addappid(1829903, 1, "2b37a7fded4585baf99d45b5db9e89f012df9517d97b0b71662e17878bbbcc9a") -- Spanish (windows, 64-bit)
+setManifestid(1829903, "7963205018761426610", 975069184)
+addappid(1829904, 1, "23a85534d021e1f4199c44ae80869a3ff1b8b4b292efe4e1521a4de15c2595b3") -- Latam (windows, 64-bit)
+setManifestid(1829904, "4904054511197887188", 959897600)
+addappid(1829905, 1, "3e433f1d09bb4cebf12e53928b3a6bb9a373620f5a54fa1d24a89d6ef1e55afd") -- Arabic (windows, 64-bit)
+setManifestid(1829905, "3410727558182517018", 884101120)
+
+-- DLC's (no depot keys required)
+addappid(2133610) -- Marvel's Spider-Man: Miles Morales - Pre-purchase Entitlements
+
+-- Shared Depots (Runtimes / Launchers / ETC)
+addappid(228988, 1, "1845444d5e2cfd0ae65ae4a8fedb6e2fbf776fcc5b913ab4ac461bc9a74f8358") -- (windows)
+
+-- Missing Depots (We don't have the keys yet lol): 1817193, 1829906

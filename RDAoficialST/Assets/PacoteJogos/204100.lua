@@ -1,0 +1,66 @@
+-- Generated with Luie @ https://lua.tools/
+-- 204100 - Max Payne 3
+-- Generated 2026-10-10 22:01:44 UTC
+-- # Depots (Total/DLC/Shared): 17/5/1
+
+-- Main AppID
+addappid(204100, 1, "12582e73f0e0e2067b3e8844a11971d78d386c641ccd1b68f1d968ebdecaac29")
+
+-- Main Depots
+addappid(204102, 1, "167f0b123df8cba56896db84579bafbbad31ba8dfefdb40dc4ab47734aeb7e48") -- (windows)
+setManifestid(204102, "3355664247437611729", 107147795)
+addappid(204104, 1, "dce5aa99fab4fdb1bfb2ddd967d6d4ecd69b36ead35c7c44b5bbb0cf6be6af35") -- (windows)
+setManifestid(204104, "2018645313186401509", 34810303040)
+addappid(204105, 1, "c05905041da5986ede4ce2fd3f66027e5e88b443d0316dda2efd19cdd7a72a62") -- (windows)
+setManifestid(204105, "4567261895926818834", 23715816)
+addappid(204114, 1, "259509faa392b6a3cde24feca3b2e6e3dffa1e455e61f671f65247bf948a2193") -- (macos)
+setManifestid(204114, "3750780175254170444", 31505833265)
+addappid(204115, 1, "793f0c2aa16ed5fd0e1c3c2721fafe0eca5d683fadb9961eec550c9729f671aa") -- (macos)
+setManifestid(204115, "6904567155150232022", 23832472)
+addappid(211524, 1, "aefe926f7cdfe8b40dbe21f70dc7bc52cbe0d86f0d728d7c5416e9331e9d62a1") -- (macos)
+setManifestid(211524, "6377511973916138874", 690762989)
+addappid(211525, 1, "ab72819e97335eedb1293f42e382e53605fd3e6d22775c03fbdb8fc313c861f3") -- (macos)
+setManifestid(211525, "2222537199617026930", 1237566293)
+addappid(211526, 1, "b140a43f717d375697db1ba4c82b2b29ae99dd71cec14b08e6694aabf9cdc747") -- (macos)
+setManifestid(211526, "5413856105312404894", 1078536510)
+addappid(211527, 1, "c53538f1c58553e3a25f55809cab51920f8191c06e350837b4f8020c622f96be") -- (macos)
+setManifestid(211527, "8919153356669044544", 414031779)
+addappid(211528, 1, "f15a3cfc93f0d2f9d6f4307585d30003bd2d05c290913643f283c1bbdb334123") -- (macos)
+setManifestid(211528, "799267678352422137", 106824883)
+addappid(211529, 1, "9797ce84ff78d7c701f4204018e45c7703e20e7f97a14c29817ad8ec5f984bb4") -- (macos)
+setManifestid(211529, "5043794854051410684", 851400148)
+
+-- DLC's (no depot keys required)
+addappid(204106) -- DLC 204106
+addappid(204107) -- DLC 204107
+addappid(204108) -- DLC 204108
+addappid(204109) -- DLC 204109
+addappid(204110) -- DLC 204110
+addappid(204111) -- DLC 204111
+addappid(213370) -- DLC 213370
+
+-- DLC's (with depot keys)
+-- DLC 204112 (AppID: 204112)
+addappid(204112)
+addappid(204112, 1, "2ee4d3650aeaff9375a1ce0583920546f347c6bcddebc179729e816e22a52746") -- (windows)
+setManifestid(204112, "4680365301983588413", 339254234)
+-- DLC 211520 (AppID: 211520)
+addappid(211520)
+addappid(211520, 1, "d88e20d7fcab099ebf4ac07d88fd1462cb71178c1e4eea3a4bd622dea7f06fdc") -- (windows)
+setManifestid(211520, "2775848059097881311", 856611814)
+-- DLC 211521 (AppID: 211521)
+addappid(211521)
+addappid(211521, 1, "a13d9d6dd44ff1182e0c74e446cd9882a59e6f45456f1c632d12dd15d1c303ab") -- (windows)
+setManifestid(211521, "2115168271737722500", 1240059046)
+-- DLC 211522 (AppID: 211522)
+addappid(211522)
+addappid(211522, 1, "d294ae04bfb512e055f6b0b1e12b27dec4575896be9aafddaf07f23d32cadce8") -- (windows)
+setManifestid(211522, "5033146606938445985", 1086097998)
+-- DLC 211523 (AppID: 211523)
+addappid(211523)
+addappid(211523, 1, "a543a8027ca32b69db40c3608b5142391f0d9dcf98388cb260e0ccaa8994a554") -- (windows)
+setManifestid(211523, "5411554521103652584", 417829674)
+
+-- Shared Depots (Runtimes / Launchers / ETC)
+addappid(1899671, 1, "b7921da5e50d00b2238d0fe870a354cb572bc5d397955fef02a439103f62827b")
+setManifestid(1899671, "3914969219305676290", 239826989)

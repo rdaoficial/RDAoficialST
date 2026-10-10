@@ -302,11 +302,11 @@
                                 <!-- VISUAL -->
                                 <Setter TargetName="TabBorder"
                                 Property="Background"
-                                Value="#FFD700"/>
+                                Value="Red"/>
 
                                 <Setter TargetName="TabBorder"
                                 Property="BorderBrush"
-                                Value="#FFA500"/>
+                                Value="Red"/>
 
                                 <Setter TargetName="TabBorder"
                                 Property="Opacity"
@@ -418,7 +418,7 @@
 
 
         <Image x:Name="fundo"
-           Source="Assets/fundo.jpg"
+           Source="Assets/fundo2.jpg"
            Stretch="Fill"
            Opacity="0.45"
            RenderTransformOrigin="0.5,0.5">
@@ -436,32 +436,13 @@
         <Border Background="#88000000"/>
 
         <StackPanel HorizontalAlignment="Center"
-                        Margin="0,25,0,25">
+                        Margin="0,42,0,25">
 
             <!-- REDES SOCIAIS -->
             <StackPanel Orientation="Vertical"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Margin="-30,10,0,0">
-
-                <!-- DISCORD -->
-                <Button Width="40"
-                            Height="40"
-                            Margin="0,0,5,10"
-                            Background="Transparent"
-                            Style="{StaticResource AnimatedButtonStyle}"
-                            Click="BtnDiscord_Click">
-
-                    <StackPanel Height="40"
-                                    Width="40">
-
-                        <Image Source="Assets/discord.png"
-                                   Width="36"
-                                   Height="54"/>
-
-                    </StackPanel>
-
-                </Button>
 
                 <!-- YOUTUBE -->
                 <Button Width="40"
@@ -509,7 +490,7 @@
 
                     <Image.Effect>
                         <DropShadowEffect
-                Color="#FFD700"
+                Color="Red"
                 BlurRadius="40"
                 ShadowDepth="0"
                 Opacity="0.85"/>
@@ -528,7 +509,7 @@
 
                 <TextBlock.Effect>
                     <DropShadowEffect
-            Color="#FFF4B0"
+            Color="#FFFFB0B0"
             BlurRadius="25"
             ShadowDepth="0"
             Opacity="0.8"/>
@@ -544,13 +525,13 @@
                             <TranslateTransform x:Name="TituloGradientTransform"/>
                         </LinearGradientBrush.RelativeTransform>
 
-                        <GradientStop Color="#FFD700" Offset="0.00"/>
-                        <GradientStop Color="#FFD700" Offset="0.25"/>
-                        <GradientStop Color="#FFE680" Offset="0.40"/>
+                        <GradientStop Color="Red" Offset="0.00"/>
+                        <GradientStop Color="Red" Offset="0.25"/>
+                        <GradientStop Color="#FFFF8080" Offset="0.40"/>
                         <GradientStop Color="#FFFFFF" Offset="0.50"/>
-                        <GradientStop Color="#FFE680" Offset="0.60"/>
-                        <GradientStop Color="#FFD700" Offset="0.75"/>
-                        <GradientStop Color="#FFD700" Offset="1.00"/>
+                        <GradientStop Color="#FFFF8080" Offset="0.60"/>
+                        <GradientStop Color="Red" Offset="0.75"/>
+                        <GradientStop Color="Red" Offset="1.00"/>
 
                     </LinearGradientBrush>
 
@@ -559,9 +540,9 @@
             </TextBlock>
 
             <!-- SUB -->
-            <TextBlock Text="A melhor ferramenta de instalação do Steam Tools."
+            <TextBlock Text="(Ferramenta oficial.)"
                            FontSize="14"
-                           Foreground="White"
+                           Foreground="#FFF90303"
                            Margin="0,0,0,25"
                            HorizontalAlignment="Center"/>
 
@@ -572,58 +553,71 @@
                             BorderThickness="0"
                             FontSize="14">
 
+
                 <!-- =========================== -->
-                <!-- ABA STEAM TOOLS -->
+                <!-- ABA PACOTE JOGOS -->
                 <!-- =========================== -->
 
-                <TabItem Header="Steam Tools" Margin="26,0,-36,0">
 
-                    <StackPanel Margin="15">
+                <TabItem Header="Pacote de jogos" Margin="65,0,-70,0">
+                    <Grid Margin="15">
+                        <Border Background="Transparent"
+                BorderBrush="Transparent"
+                BorderThickness="1"
+                CornerRadius="18"
+                Padding="25" Margin="0,-45,0,-17">
+                            <StackPanel VerticalAlignment="Center">
 
-                        <TextBlock Text="Instalação versão (Mais recente)"
-                                       FontSize="18"
-                                       FontWeight="Bold"
-                                       Foreground="White"
-                                       Margin="0,0,0,12"
-                                       HorizontalAlignment="Center"/>
+                                <Image
+                                    Source="Assets/111.ico"
+                                    Width="107"
+                                    Height="134"
+                                    Stretch="Uniform"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,0,0,15"/>
 
-                        <Button Content="Instalar (Tudo) Steam Tools / Millennium / Lua Tools"
-                                    Width="320"
-                                    Height="38"
-                                    Margin="0,0,0,10"
-                                    FontSize="12"
-                                    Background="#00BFFF"
+                                <TextBlock Text="Pacotão +200 jogos"
+                           Foreground="White"
+                           FontSize="26"
+                           FontWeight="ExtraBold"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,12"/>
+
+                                <TextBlock Text="Compre vários jogos de uma vez só."
+                           Foreground="#CCCCCC"
+                           FontSize="13"
+                           TextAlignment="Center"
+                           Margin="0,0,0,25"/>
+
+                                <Button
+                                    Content="Comprar Pacote"
+                                    Background="Red"
                                     Style="{StaticResource AnimatedButtonStyle}"
-                                    Click="BtnInstall_Click"/>
+                                    Click="BtnInstalarPacote_Click"
+                                    Width="220"
+                                    Height="45"
+                                    Margin="0,10,0,0"/>
 
 
+                                <TextBlock x:Name="TxtStatusPacote"
+                           Text="Pronto para Instalar."
+                           Foreground="#CCCCCC"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           Margin="0,18,0,0" Height="35"/>
 
-                        <TextBlock Text="Remoção"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="White"
-                               Margin="0,0,0,12"
-                               HorizontalAlignment="Center"/>
-
-
-                        <Button Content="Remover Steam Tools (Mantém .lua dos games)"
-                                Width="320"
-                                Height="38"
-                                Margin="0,0,0,10"
-                                FontSize="12"
-                                Background="#D80303"
-                                Style="{StaticResource AnimatedButtonStyle}"
-                                Click="BtnRemove_Click"/>
-                    </StackPanel>
-
+                            </StackPanel>
+                        </Border>
+                    </Grid>
                 </TabItem>
+
 
 
                 <!-- =========================== -->
                 <!-- ABA BACKUP -->
                 <!-- =========================== -->
 
-                <TabItem Header="Backups" Margin="40,0,-73,0" RenderTransformOrigin="0.5,0.5">
+                <TabItem Header="Backups" Margin="74,0,-107,0" RenderTransformOrigin="0.5,0.5">
                     <TabItem.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.975" ScaleY="0.975"/>
@@ -637,7 +631,7 @@
 
                         <TextBlock Text="Backup da Biblioteca (.luas)"
                                        FontSize="18"
-                                       FontWeight="Bold"
+                                       FontWeight="ExtraBold"
                                        Foreground="White"
                                        Margin="0,0,0,12"
                                        HorizontalAlignment="Center"/>
@@ -646,22 +640,22 @@
                                     Width="320"
                                     Height="38"
                                     Margin="0,0,0,10"
-                                    Background="#FFF100FF"
+                                    Background="Red"
                                     Style="{StaticResource AnimatedButtonStyle}"
                                     Click="BtnBackup_Click" Foreground="White"/>
 
-                        <Button Content="Restaurar Automático"
+                        <Button Content="Restauração Automática"
                                     Width="320"
                                     Height="38"
                                     Margin="0,0,0,10"
-                                    Background="#FFF100FF"
+                                    Background="Red"
                                     Style="{StaticResource AnimatedButtonStyle}"
                                     Click="BtnRestore_Click"/>
 
 
                         <TextBlock Text="Backup das Conquistas"
                            FontSize="18"
-                           FontWeight="Bold"
+                           FontWeight="ExtraBold"
                            Foreground="White"
                            Margin="0,0,0,12"
                            HorizontalAlignment="Center"/>
@@ -671,15 +665,15 @@
                                     Width="320"
                                     Height="38"
                                     Margin="0,0,0,10"
-                                    Background="#32CD32"
+                                    Background="Red"
                                     Style="{StaticResource AnimatedButtonStyle}"
                                     Click="BtnBackupconq_Click"/>
 
-                        <Button Content="Restaurar Automatico"
+                        <Button Content="Restauração Automatica"
                                     Width="320"
                                     Height="38"
                                     Margin="0,0,0,30"
-                                    Background="#32CD32"
+                                    Background="Red"
                                     Style="{StaticResource AnimatedButtonStyle}"
                                     Click="BtnRestoreconq_Click"/>
 
@@ -688,79 +682,11 @@
                 </TabItem>
 
                 <!-- =========================== -->
-                <!-- ABA MILLENNIUM -->
-                <!-- =========================== -->
-
-                <TabItem Header="Millennium"
-                             Background="#151515" Margin="76,0,-92,0" RenderTransformOrigin="0.5,0.5">
-                    <TabItem.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="0.979" ScaleY="0.979"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </TabItem.RenderTransform>
-
-                    <Grid>
-
-                        <StackPanel VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        Margin="0,20,0,0">
-
-                            <Border Width="403"
-                                        Padding="20"
-                                        CornerRadius="18"
-                                        Background="Transparent"
-                                        BorderBrush="Transparent"
-                                        BorderThickness="1" Height="359">
-
-                                <StackPanel>
-
-                                    <Image Source="Assets/appicon.png"
-                                               Width="90"
-                                               Height="90"
-                                               Margin="0,0,0,15"
-                                               HorizontalAlignment="Center"/>
-
-                                    <TextBlock Text="Millennium"
-                                                   FontSize="24"
-                                                   FontWeight="Bold"
-                                                   Foreground="White"
-                                                   HorizontalAlignment="Center"
-                                                   Margin="0,0,0,8"/>
-
-                                    <TextBlock Text="Clique abaixo para baixar a versão mais recente."
-                                                   Foreground="#BBBBBB"
-                                                   FontSize="13"
-                                                   TextAlignment="Center"
-                                                   Margin="0,0,0,12"/>
-
-                                    <Button Content="Baixar"
-                                                Width="220"
-                                                Height="40"
-                                                HorizontalAlignment="Center"
-                                                Background="#00BFFF"
-                                                Style="{StaticResource AnimatedButtonStyle}"
-                                                Click="BtnMillennium_Click"/>
-
-                                </StackPanel>
-
-                            </Border>
-
-                        </StackPanel>
-
-                    </Grid>
-
-                </TabItem>
-
-
-                <!-- =========================== -->
                 <!-- ABA LUA TOOLS -->
                 <!-- =========================== -->
 
                 <TabItem Header="Lua Tools"
-         Margin="95,0,-120,0">
+         Margin="111,0,-136,0">
 
                     <Grid Margin="15">
 
@@ -769,86 +695,33 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <!-- ================================= -->
-                        <!-- PLUGIN -->
-                        <!-- ================================= -->
-
-                        <Border Grid.Column="0"
-                Margin="5"
-                Padding="15"
-                CornerRadius="15"
-                Background="Transparent"
-                BorderThickness="1">
-
-                            <StackPanel>
-
-                                <Image Source="Assets/luatools.png"
-                       Width="70"
-                       Height="70"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,12"/>
-                                
-                          
-
-                                <TextBlock Text="Lua Tools (Plugin)"
-                           FontSize="18"
-                           FontWeight="Bold"
-                           Foreground="White"
-                           HorizontalAlignment="Center"
-                           Margin="0,0,0,10"/>
-
-                                <TextBlock Text="Baixe sempre a versão mais recente do plugin."
-                           TextAlignment="Center"
-                           Foreground="#BBBBBB"
-                           FontSize="11"
-                           Margin="0,0,0,18"/>
-
-                                <Button Content="Download"
-                        Width="190"
-                        Height="38"
-                        Margin="0,0,0,10"
-                        Background="#EF00FC"
-                        Style="{StaticResource AnimatedButtonStyle}"
-                        Click="BtnbaixarLua_Click"/>
-
-                                <Button Content="Instalar plugin"
-                        Width="190"
-                        Height="38"
-                        Background="#EF00FC"
-                        Style="{StaticResource AnimatedButtonStyle}"
-                        Click="BtnSelecionarLua_Click"/>
-
-                            </StackPanel>
-
-                        </Border>
 
                         <!-- ================================= -->
                         <!-- INSTALADOR -->
                         <!-- ================================= -->
 
-                        <Border Grid.Column="1"
-                Margin="5"
+                        <Border
+                Margin="102,0,91,-18"
                 Padding="15"
                 CornerRadius="15"
                 Background="Transparent"
-                BorderThickness="1">
+                BorderThickness="1" Grid.ColumnSpan="2">
 
-                            <StackPanel>
+                            <StackPanel Margin="-106,-38,-94,-41">
 
-                                <Image Source="Assets/applua.png"
-                       Width="275"
-                       Height="104"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,12"/>
+                                <Image Source="Assets/luaapp.png"
+                       Width="269"
+                       Height="193"
+                       />
 
-                                <TextBlock Text="Lua Tools (App)"
+                                <TextBlock Text="App Lua Tools!"
                            FontSize="18"
-                           FontWeight="Bold"
+                           FontWeight="ExtraBold"
                            Foreground="White"
                            HorizontalAlignment="Center"
-                           Margin="0,0,0,10"/>
+                           Margin="0,0,0,10" Height="28" Width="140"/>
 
-                                <TextBlock Text="Baixe o instalador do App Lua Tools."
+                                <TextBlock Text="Baixe o App (oficial) do Lua Tools."
                            TextAlignment="Center"
                            Foreground="#BBBBBB"
                            FontSize="11"
@@ -876,7 +749,7 @@
                 <!-- =========================== -->
 
                 <TabItem Header="Fixes Games"
-                    Margin="126,0,-135,0">
+                    Margin="142,0,-169,0">
 
                     <Grid Height="423">
 
@@ -911,9 +784,9 @@
                             <!-- IMAGEM -->
 
                             <!-- TITULO -->
-                            <TextBlock Text="Correções para os Games Iniciarem"
+                            <TextBlock Text="Correções para Games Offline/Online"
                        FontSize="17"
-                       FontWeight="Bold"
+                       FontWeight="ExtraBold"
                        Foreground="White"
                        Margin="0,0,0,15"
                        HorizontalAlignment="Center" Height="30"/>
@@ -931,7 +804,7 @@
                             <Button Content="Ryuu Fixes"
                     Width="200"
                     Height="35"
-                    Background="#8A2BE2"
+                    Background="Red"
                     Style="{StaticResource AnimatedButtonStyle}"
                     Click="BtnRyuufix_Click"/>
 
@@ -940,7 +813,7 @@
                     Width="200"
                     Height="35"
                     Margin="0,10,0,0"
-                    Background="#00BFFF"
+                    Background="Red"
                     Style="{StaticResource AnimatedButtonStyle}"
                     Click="BtnOnlineFix_Click"/>
 
@@ -959,7 +832,7 @@
         </StackPanel>
 
         <TextBlock Text="RDAoficial™ • © 2026 • Todos os direitos reservados"
-           Foreground="#AAAAAA"
+           Foreground="Red"
            FontSize="11"
            HorizontalAlignment="Center"
            VerticalAlignment="Top"
@@ -968,7 +841,7 @@
 
         <TextBlock Text="Sobre"
            FontSize="13"
-           Foreground="Yellow"
+           Foreground="Red"
            Cursor="Hand"
            HorizontalAlignment="Right"
            VerticalAlignment="Top"

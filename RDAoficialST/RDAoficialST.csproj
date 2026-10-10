@@ -97,6 +97,77 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Assets\PacoteJogos\10180.lua" />
+    <None Include="Assets\PacoteJogos\105600.lua" />
+    <None Include="Assets\PacoteJogos\1085660.lua" />
+    <None Include="Assets\PacoteJogos\1091500.lua" />
+    <None Include="Assets\PacoteJogos\1145360.lua" />
+    <None Include="Assets\PacoteJogos\1151640.lua" />
+    <None Include="Assets\PacoteJogos\1172470.lua" />
+    <None Include="Assets\PacoteJogos\12100.lua" />
+    <None Include="Assets\PacoteJogos\12110.lua" />
+    <None Include="Assets\PacoteJogos\12210.lua" />
+    <None Include="Assets\PacoteJogos\12220.lua" />
+    <None Include="Assets\PacoteJogos\1240440.lua" />
+    <None Include="Assets\PacoteJogos\1262540.lua" />
+    <None Include="Assets\PacoteJogos\1293830.lua" />
+    <None Include="Assets\PacoteJogos\1328670.lua" />
+    <None Include="Assets\PacoteJogos\1446780.lua" />
+    <None Include="Assets\PacoteJogos\15100.lua" />
+    <None Include="Assets\PacoteJogos\1546990.lua" />
+    <None Include="Assets\PacoteJogos\1794680.lua" />
+    <None Include="Assets\PacoteJogos\1794960.lua" />
+    <None Include="Assets\PacoteJogos\1817070.lua" />
+    <None Include="Assets\PacoteJogos\1817190.lua" />
+    <None Include="Assets\PacoteJogos\1965390.lua" />
+    <None Include="Assets\PacoteJogos\1985510.lua" />
+    <None Include="Assets\PacoteJogos\19980.lua" />
+    <None Include="Assets\PacoteJogos\201870.lua" />
+    <None Include="Assets\PacoteJogos\203160.lua" />
+    <None Include="Assets\PacoteJogos\204100.lua" />
+    <None Include="Assets\PacoteJogos\205100.lua" />
+    <None Include="Assets\PacoteJogos\208650.lua" />
+    <None Include="Assets\PacoteJogos\218620.lua" />
+    <None Include="Assets\PacoteJogos\2195250.lua" />
+    <None Include="Assets\PacoteJogos\2208920.lua" />
+    <None Include="Assets\PacoteJogos\221100.lua" />
+    <None Include="Assets\PacoteJogos\2221490.lua" />
+    <None Include="Assets\PacoteJogos\22370.lua" />
+    <None Include="Assets\PacoteJogos\22380.lua" />
+    <None Include="Assets\PacoteJogos\230410.lua" />
+    <None Include="Assets\PacoteJogos\231430.lua" />
+    <None Include="Assets\PacoteJogos\239140.lua" />
+    <None Include="Assets\PacoteJogos\242760.lua" />
+    <None Include="Assets\PacoteJogos\250900.lua" />
+    <None Include="Assets\PacoteJogos\252490.lua" />
+    <None Include="Assets\PacoteJogos\268500.lua" />
+    <None Include="Assets\PacoteJogos\271590.lua" />
+    <None Include="Assets\PacoteJogos\272060.lua" />
+    <None Include="Assets\PacoteJogos\289650.lua" />
+    <None Include="Assets\PacoteJogos\306130.lua" />
+    <None Include="Assets\PacoteJogos\322330.lua" />
+    <None Include="Assets\PacoteJogos\33230.lua" />
+    <None Include="Assets\PacoteJogos\356190.lua" />
+    <None Include="Assets\PacoteJogos\365590.lua" />
+    <None Include="Assets\PacoteJogos\377160.lua" />
+    <None Include="Assets\PacoteJogos\391220.lua" />
+    <None Include="Assets\PacoteJogos\397540.lua" />
+    <None Include="Assets\PacoteJogos\400.lua" />
+    <None Include="Assets\PacoteJogos\42700.lua" />
+    <None Include="Assets\PacoteJogos\440.lua" />
+    <None Include="Assets\PacoteJogos\470040.lua" />
+    <None Include="Assets\PacoteJogos\48190.lua" />
+    <None Include="Assets\PacoteJogos\489830.lua" />
+    <None Include="Assets\PacoteJogos\550.lua" />
+    <None Include="Assets\PacoteJogos\570.lua" />
+    <None Include="Assets\PacoteJogos\582010.lua" />
+    <None Include="Assets\PacoteJogos\582160.lua" />
+    <None Include="Assets\PacoteJogos\620.lua" />
+    <None Include="Assets\PacoteJogos\730.lua" />
+    <None Include="Assets\PacoteJogos\812140.lua" />
+    <None Include="Assets\PacoteJogos\813780.lua" />
+    <None Include="Assets\PacoteJogos\814380.lua" />
+    <None Include="Assets\PacoteJogos\870780.lua" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -125,10 +196,24 @@
     <Resource Include="Assets\luatools.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\LuaTools-win-Setup.exe" />
+    <Resource Include="Assets\applua.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\applua.png" />
+    <Resource Include="Assets\luaapp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\PacoteJogos\*.lua">
+      <LogicalName>PacoteJogos.%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\fundo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\111.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\PacoteJogos\FAILED.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

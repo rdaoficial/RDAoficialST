@@ -1,0 +1,26 @@
+-- Generated with Luie @ https://lua.tools/
+-- 19900 - Far Cry 2
+-- Generated 2026-09-29 06:19:15 UTC
+-- # Depots (Total/DLC/Shared): 7/0/0
+
+-- Main AppID
+addappid(19900, 1, "a0045df7c2ee51ace8371351b2263ba1abbb5a7758dc3d72d8dca4e2bc758995")
+
+-- Main Depots
+addappid(19901, 1, "c21afb5887d399bed13311cbcefc03dbe5552ad116a12ecbe56fe4ae069e862c")
+-- setManifestid(19901, "3673361057961369345", 3578228657)
+addappid(19902, 1, "91591bb723c176e6d6afae850f9b4047010247d4a1a26008b409bef474d8cdd3") -- English
+-- setManifestid(19902, "9155719787324890368", 240588626)
+addappid(19903, 1, "d3abd6b840eae547bd34f32d7928494304327351db5704f3c6545053171f1f8f") -- French
+-- setManifestid(19903, "407630865862319198", 246256439)
+addappid(19904, 1, "37d01ab596c4414c076ea853e54b112a25b1c2448add301d8ec1f5680d289f4c") -- German
+-- setManifestid(19904, "6126982062191436208", 226452424)
+addappid(19905, 1, "5d235dcc7cce0c0dadc4f74567d15b59f33b016449585a9403b5eb7053451a61") -- Italian
+-- setManifestid(19905, "3493246412726470268", 247772641)
+addappid(19906, 1, "444337f5a842722ec48294b7091394cd18c63a0a00837fc2d045990a613d6f65") -- Spanish
+-- setManifestid(19906, "7743973407637979881", 247213156)
+addappid(21961, 1, "d941019d3d54cf464a67976dbb0dd0b5c26630cae2f4a5ed03e2d71b7f084740")
+-- setManifestid(21961, "2265566049842091901", 120555860)
+
+-- DLC's (no depot keys required)
+addappid(21960) -- Far Cry 2: Fortunes Pack

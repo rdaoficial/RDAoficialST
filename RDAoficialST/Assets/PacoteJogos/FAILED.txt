@@ -1,0 +1,10 @@
+These games could not be included:
+
+202890 - appid not found
+48870 - appid not found
+565130 - depot info unavailable (token-locked app)
+2478940 - no valid depots (only DLC/shared keys or none)
+2726420 - game has not been published yet -- no content is available to download, not even a preload (release state: prerelease)
+2124800 - no valid depots (only DLC/shared keys or none)
+1326410 - no valid depots (only DLC/shared keys or none)
+2077860 - game has not been published yet -- no content is available to download, not even a preload (release state: prerelease)
